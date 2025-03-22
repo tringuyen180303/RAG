@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: monitoring-ingress
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # or if you prefer the newer field:
+    # ingressClassName: "nginx"
+spec:
+  rules:
+    # 1) A host for Prometheus
+  - host: prom.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-prometheus-server
+            port:
+              number: 80
+    # 2) A host for Grafana
+  - host: grafana.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-grafana
+            port:
+              number: 80
+
+  - host: jaeger.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jaeger-all-in-one   # adjust to the actual service name if different
+            port:
+              number: 16686
+    
