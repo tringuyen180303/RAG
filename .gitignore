@@ -1,3 +1,4 @@
 .env
 app/models/
 venv/
+.terraform/
