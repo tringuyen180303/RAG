@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: docker.io/tringuyen180303/fastapi-service:latest
+        image: docker.io/tringuyen180303/fastapi-service-gke:latest
         ports:
           - containerPort: 30000
