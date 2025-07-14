@@ -127,7 +127,3 @@ pytest
 ## License
 
 MIT License
-
-
-# Put in for grafana for prometheus data source
-http://my-prometheus-server.monitoring.svc.cluster.local:80
